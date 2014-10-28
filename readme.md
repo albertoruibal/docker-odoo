@@ -1,15 +1,17 @@
-Description
+Docker-Odoo
 ===========
+Odoo is an Python-powered open source ERP, previously called OpenERP http://www.odoo.com.
 
-This is a Docker image with Odoo 7 (previously OpenERP) and PostgreSQL ready to use.
+This is a Docker image with Odoo 7 and PostgreSQL ready to use.
 
-Is based on Debian stable and includes:
+It is based on Debian stable and includes:
 
-* Odoo7 (previously called OpenERP)
+* Odoo7
 * PotgreSQL 9.1
 * Supervisor to run both
 
-It only exposes the OpenERP web interface at the port 8069. The database can be created, backed-up and restored, etc. with this web interface.
+It only exposes the Odoo web interface at the port 8069.
+The database can be created, backed-up and restored, etc. with this web interface.
 
 Sample usage:
 
