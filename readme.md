@@ -1,7 +1,7 @@
 Description
 ===========
 
-This is a Docker image with OpenERP and PostgreSQL.
+This is a Docker image with Odoo 7 (previously OpenERP) and PostgreSQL ready to use.
 
 Is based on Debian stable and includes:
 
