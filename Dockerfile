@@ -13,7 +13,7 @@ RUN apt-get install --allow-unauthenticated -y supervisor postgresql python2.6 o
 # PostgreSQL: recreate database with UTF-8 and create user openerp
 #
 ADD etc/supervisor/conf.d/10_postgresql.conf /etc/supervisor/conf.d/10_postgresql.conf
-VOLUME  ["/var/lib/postgresql"]
+#VOLUME  ["/var/lib/postgresql"]
 
 RUN pg_dropcluster --stop 9.1 main
 RUN pg_createcluster --locale en_US -e UTF-8 --start 9.1 main
