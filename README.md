@@ -7,7 +7,7 @@ This is a Docker image with Odoo 7 and PostgreSQL ready to use.
 It is based on Debian stable and includes:
 
 * Odoo7
-* PotgreSQL 9.1
+* PostgreSQL 9.1
 * Supervisor to run both
 
 It only exposes the Odoo web interface at the port 8069.

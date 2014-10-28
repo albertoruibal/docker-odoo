@@ -5,12 +5,13 @@ MAINTAINER Alberto Alonso Ruibal @albertoruibal
 # Configure APT packages and upgrade
 #
 RUN echo deb http://nightly.odoo.com/7.0/nightly/deb/ ./ > /etc/apt/sources.list.d/openerp-70.list
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update
+RUN apt-get install locales
+RUN apt-get upgrade -y
 
 #
 # Locale setup (if not set, PostgreSQL creates the database in SQL_ASCII)
 #
-RUN apt-get install locales
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
