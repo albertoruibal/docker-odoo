@@ -6,7 +6,19 @@ MAINTAINER Alberto Alonso Ruibal @albertoruibal
 #
 RUN echo deb http://nightly.odoo.com/7.0/nightly/deb/ ./ > /etc/apt/sources.list.d/openerp-70.list
 RUN apt-get update && apt-get upgrade -y
-RUN export LANG=en_US.UTF-8 && apt-get install --allow-unauthenticated -y supervisor postgresql python2.6 openerp
+
+#
+# Locale setup
+#
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
+#
+# Postgres & OpenERP
+#
+RUN apt-get install --allow-unauthenticated -y supervisor postgresql python2.6 openerp
 
 #
 # PostgreSQL: recreate database with UTF-8 and add the openerp user
