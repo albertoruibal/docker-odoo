@@ -15,7 +15,9 @@ The database can be created, backed-up and restored, etc. with this web interfac
 
 Sample usage:
 
- docker pull albertoruibal/docker-odoo
- docker run -d -p 8069:8069 --name myodoo7 albertoruibal/docker-odoo
+```
+docker pull albertoruibal/docker-odoo
+docker run -d -p 8069:8069 --name myodoo7 albertoruibal/docker-odoo
+```
 
 and then access the web interface with your browser at http://localhost:8069
