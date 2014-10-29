@@ -1,6 +1,6 @@
 Docker-Odoo
 ===========
-Odoo is an Python-powered open source ERP, previously called OpenERP http://www.odoo.com.
+Odoo is an Python-powered open source ERP, previously called OpenERP (http://www.odoo.com).
 
 This is a Docker image with Odoo 7 and PostgreSQL ready to use.
 
@@ -16,8 +16,8 @@ The database can be created, backed-up and restored, etc. with this web interfac
 Sample usage:
 
 ```
-docker pull albertoruibal/docker-odoo
-docker run -d -p 8069:8069 --name myodoo7 albertoruibal/docker-odoo
+docker pull albertoruibal/odoo
+docker run -d -p 8069:8069 --name myodoo albertoruibal/odoo
 ```
 
 and then access the web interface with your browser at http://localhost:8069
