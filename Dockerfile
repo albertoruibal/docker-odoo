@@ -28,9 +28,10 @@ RUN apt-get install --allow-unauthenticated -y supervisor postgresql python2.6 o
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/
 
 #
-# PostgreSQL: add user openerp
+# PostgreSQL: add user openerp and fix permissions
 #
 RUN /etc/init.d/postgresql start && su postgres -c "createuser -s openerp"
+RUN chown -R postgres.postgres /var/lib/postgresql
 VOLUME  ["/var/lib/postgresql"]
 
 #
