@@ -32,7 +32,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/
 #
 RUN /etc/init.d/postgresql start && su postgres -c "createuser -s openerp"
 RUN chown -R postgres.postgres /var/lib/postgresql
-#VOLUME  ["/var/lib/postgresql"]
+VOLUME  ["/var/lib/postgresql"]
 
 #
 # Supervisor setup
