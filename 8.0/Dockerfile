@@ -4,7 +4,7 @@ MAINTAINER Alberto Alonso Ruibal @albertoruibal
 #
 # Configure APT packages and upgrad
 #
-RUN echo deb http://nightly.odoo.com/8.0/nightly/deb/ ./ > /etc/apt/sources.list.d/openerp-80.list
+RUN echo deb http://nightly.odoo.com/8.0/nightly/deb/ ./ > /etc/apt/sources.list.d/odoo-80.list
 RUN apt-get update
 RUN apt-get upgrade -y
 
@@ -18,9 +18,9 @@ RUN locale-gen en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
 #
-# Install PostgreSQL, OpenERP and Supervisor
+# Install PostgreSQL, Odoo and Supervisor
 #
-RUN apt-get install --allow-unauthenticated -y supervisor postgresql python2.6 openerp
+RUN apt-get install --allow-unauthenticated -y supervisor postgresql python2.6 odoo
 
 #
 # Clean
@@ -28,9 +28,9 @@ RUN apt-get install --allow-unauthenticated -y supervisor postgresql python2.6 o
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/
 
 #
-# PostgreSQL: add user openerp and fix permissions
+# PostgreSQL: add user odoo and fix permissions
 #
-RUN /etc/init.d/postgresql start && su postgres -c "createuser -s openerp"
+RUN /etc/init.d/postgresql start && su postgres -c "createuser -s odoo"
 RUN chown -R postgres.postgres /var/lib/postgresql
 VOLUME  ["/var/lib/postgresql"]
 
@@ -38,7 +38,7 @@ VOLUME  ["/var/lib/postgresql"]
 # Supervisor setup
 #
 ADD etc/supervisor/conf.d/10_postgresql.conf /etc/supervisor/conf.d/10_postgresql.conf
-ADD etc/supervisor/conf.d/20_openerp.conf /etc/supervisor/conf.d/20_openerp.conf
+ADD etc/supervisor/conf.d/20_odoo.conf /etc/supervisor/conf.d/20_odoo.conf
 
 EXPOSE 8069
 CMD ["/usr/bin/supervisord", "-n"]

@@ -6,7 +6,7 @@ This is a Docker image with Odoo and PostgreSQL ready to use.
 
 It is based on Debian stable and includes:
 
-* Odoo 7 or 8
+* Odoo 7 or 8 (selected with the repository tag)
 * PostgreSQL 9.1
 * Supervisor to run both
 
