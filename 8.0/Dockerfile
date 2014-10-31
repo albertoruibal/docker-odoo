@@ -20,7 +20,7 @@ ENV LC_ALL en_US.UTF-8
 #
 # Install PostgreSQL, Odoo and Supervisor
 #
-RUN apt-get install --allow-unauthenticated -y supervisor postgresql python2.6 odoo
+RUN apt-get install --allow-unauthenticated -y supervisor postgresql odoo
 
 #
 # Clean
