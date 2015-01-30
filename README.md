@@ -11,13 +11,28 @@ It is based on Debian stable and includes:
 * Supervisor to run both
 
 It only exposes the Odoo web interface at the port 8069.
-The database can be created, backed-up and restored with this web interface.
 
-Sample usage:
+This is a sample usage, create a container with name "myodoo":
 
 ```
 docker pull albertoruibal/odoo:7
 docker run -d -p 8069:8069 --name myodoo albertoruibal/odoo:7
 ```
 
-and then access the web interface with your browser at http://localhost:8069
+and then access the Odoo web interface with your browser at http://localhost:8069
+
+Backup and restore
+==================
+
+The databases can be created, backed-up and restored from the Odoo web interface accessing to the
+link in the login page "Manage Databases". The default master password is "admin".
+
+If the web interface fails to restore your database, in OpenERP 7 you can do it using the command line:
+```
+docker exec -i CONTAINER_NAME /bin/su openerp -s /bin/bash -c "/usr/bin/pg_restore -C -d DATABASE_NAME" < FILE_TO_RESTORE.dump
+```
+Where:
+
+* CONTAINER_NAME: is the name of your container, like "myodoo"
+* DATABASE_NAME: name of the PosgreSQL database where you are going to restore the backup
+* FILE_TO_RESTORE: a PostgreSQL dump file with the backup (the web interface backup generates this kind of files)
