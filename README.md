@@ -27,12 +27,13 @@ Backup and restore
 The databases can be created, backed-up and restored from the Odoo web interface accessing to the
 link in the login page "Manage Databases". The default master password is "admin".
 
-If the web interface fails to restore your database, in OpenERP 7 you can do it using the command line:
+If the web interface fails to restore your database in OpenERP 7, you can restore it using the command line:
 ```
-docker exec -i CONTAINER_NAME /bin/su openerp -s /bin/bash -c "/usr/bin/pg_restore -C -d DATABASE_NAME" < FILE_TO_RESTORE.dump
+docker exec -i odoo7_mobialia /bin/su openerp -s /bin/bash -c "/usr/bin/createdb DATABASE_NAME -E utf8"
+docker exec -i CONTAINER_NAME /bin/su openerp -s /bin/bash -c "/usr/bin/pg_restore -c -d DATABASE_NAME" < FILE_TO_RESTORE.dump
 ```
 Where:
 
-* CONTAINER_NAME: is the name of your container, like "myodoo"
+* CONTAINER_NAME: is the name of your Docker container, like "myodoo"
 * DATABASE_NAME: name of the PosgreSQL database where you are going to restore the backup
 * FILE_TO_RESTORE: a PostgreSQL dump file with the backup (the web interface backup generates this kind of files)
