@@ -29,7 +29,7 @@ link in the login page "Manage Databases". The default master password is "admin
 
 If the web interface fails to restore your database in OpenERP 7, you can restore it using the command line:
 ```
-docker exec -i odoo7_mobialia /bin/su openerp -s /bin/bash -c "/usr/bin/createdb DATABASE_NAME -E utf8"
+docker exec -i CONTAINER_NAME /bin/su openerp -s /bin/bash -c "/usr/bin/createdb DATABASE_NAME -E utf8"
 docker exec -i CONTAINER_NAME /bin/su openerp -s /bin/bash -c "/usr/bin/pg_restore -c -d DATABASE_NAME" < FILE_TO_RESTORE.dump
 ```
 Where:
